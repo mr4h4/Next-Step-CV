@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV_{{ cv.name }} {{ cv.surname }}</title>
+    <link rel="stylesheet" href="{{css_path}}">
+</head>
+
+<body>
+    <main>
+        <div id="columnLeft">
+            <div class="section" id="profile">
+                <img src="{{ photo_path }}" alt="Foto de perfil de {{ cv.name }} {{ cv.surname }}" />
+                <h1>{{ cv.name }} {{ cv.surname }}</h1>
+                <p>{{ cv.description }}</p>
+            </div>
+
+            <div class="section" id="jobExperience">
+                <h3>Experiencia Laboral</h3>
+                {% for exp in cv.jobExperience %}
+                <div class="exp-card">
+                    <h4>{{ exp.role }}</h4>
+                    <p class="job-details"><strong>{{ exp.company }}</strong> | <time datetime="{{ exp.startDate }}">{{
+                            exp.startDate
+                            }}</time> - <time datetime="{{ exp.endDate or 'Actualidad' }}">{{ exp.endDate or
+                            "Actualidad" }}</time></p>
+                    <p>{{ exp.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="section" id="abilities">
+                <h3>Habilidades y Competencias</h3>
+                <ul>
+                    {% for abilitie in cv.abilities %}
+                    <li>{{ abilitie }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="columnRight">
+            <div class="section" id="contactInfo">
+                <h3>Datos de Contacto</h3>
+                <p>{{ cv.location }}</p>
+                <p><strong>Email:</strong> {{ cv.email }}</p>
+                <p><strong>Teléfono:</strong> {{ cv.phoneNumber }}</p>
+            </div>
+
+            <div class="section" id="studies">
+                <h3>Formación y Certificaciones</h3>
+                {% for study in cv.studies %}
+                <div class="study-card">
+                    <div class="study-card">
+                        <h4>{{ study.title }}</h4>
+                        <div class="study-details">
+                            <p><strong>{{ study.institution }}</strong></p>
+                            <p><time datetime="{{ study.startDate }}">{{ study.startDate }}</time> - <time
+                                    datetime="{{ study.endDate or 'Present' }}">{{ study.endDate or "Present" }}</time>
+                            </p>
+                            <p>{{ study.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="section" id="languages">
+                <h3>Idiomas</h3>
+                <ul>
+                    {% for lang in cv.languages %}
+                    <div class="lang-card">
+                        <li><strong>{{ lang.name }}:</strong> {{ lang.level }}</li>
+                    </div>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="section" id="otherActivities">
+                <h3>Otras Actividades</h3>
+                <ul>
+                    {% for activity in cv.otherActivities %}
+                    <li>{{ activity }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

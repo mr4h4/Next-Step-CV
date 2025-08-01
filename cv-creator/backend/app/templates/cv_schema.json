@@ -1,0 +1,34 @@
+{
+    "name": "",
+    "surname": "",
+    "location": "",
+    "email": "",
+    "phoneNumber": "",
+    "description": "",
+    "studies": [
+        {
+            "title": "",
+            "institution": "",
+            "startDate": "",
+            "endDate": "",
+            "description": ""
+        }
+    ],
+    "jobExperience": [
+        {
+            "role": "",
+            "company": "",
+            "startDate": "",
+            "endDate": "",
+            "description": ""
+        }
+    ],
+    "languages": [
+        {
+            "name": "",
+            "level": ""
+        }
+    ],
+    "abilities": [],
+    "otherActivies": []
+}

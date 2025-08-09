@@ -1,17 +1,17 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 
 type TextProps = React.HTMLProps<HTMLHeadingElement> & {
-    content?: string;
+    children?: ReactNode;
 };
 
-const TextH4: React.FC<TextProps> = ({content, className, ...props}) => {
+const TextH4: React.FC<TextProps> = ({children, className, ...props}) => {
     const combinedClassName = `text-lg ${className || ''}`;
 
     return (
         <h4 {...props}
             className={combinedClassName}
         >
-            {content}
+            {children}
         </h4>
     );
 }

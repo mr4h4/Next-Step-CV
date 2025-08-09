@@ -2,7 +2,6 @@
   "created-by": "Creado por: H3rHex",
   "preview-name": "Nombre",
   "preview-surname": "Apellido/s",
-  "preview-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non odio eget lectus suscipit accumsan quis id mi. Sed varius, odio ut elementum tempor, ex lacus aliquet mauris, eu finibus elit magna eleifend mauris. Nunc laoreet vel massa sapien.",
   "preview-job-experience-title": "Experiencia laboral",
   "preview-abilities-title": "Habilidades y Competencias",
   "preview-data-contact-title": "Datos de Contacto",
@@ -10,6 +9,34 @@
   "preview-email": "Email:",
   "preview-phoneNumber": "Teléfono:",
   "preview-studies-title": "Formación y Certificaciones",
-  "preview-langs-title": "Idiomas"
+  "preview-langs-title": "Idiomas",
+  "preview-activities-title": "Otras Actividades",
+  "preview-social-networks-title": "Redes Sociales",
+  "social-networks": [
+    {
+      "name": "LinkedIn",
+      "icon": "https://www.svgrepo.com/svg/452047/linkedin-1.svg"
+    },
+    {
+      "name": "GitHub",
+      "icon": "https://www.svgrepo.com/svg/364377/github"
+    },
+    {
+      "name": "Behance",
+      "icon": "https://www.svgrepo.com/svg/447130/behance-fill"
+    },
+    {
+      "name": "Dribbble",
+      "icon": "https://www.svgrepo.com/svg/364456/dribbble-logo-fill"
+    },
+    {
+      "name": "Stack Overflow",
+      "icon": "https://www.svgrepo.com/svg/378465/stack-overflow-fill"
+    },
+    {
+      "name": "Medium",
+      "icon": "https://www.svgrepo.com/svg/364653/medium-logo-fill"
+    }
+  ]
 
 }

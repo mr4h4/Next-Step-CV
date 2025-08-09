@@ -1,10 +1,10 @@
-import React from "react";
+import React, {type ReactNode} from "react";
 
 type TextProps = React.HTMLProps<HTMLHeadingElement> & {
-    content?: string;
+    children?: ReactNode;
 };
 
-const TextH5: React.FC<TextProps> = ({content, className, ...props}) => {
+const TextH5: React.FC<TextProps> = ({children, className, ...props}) => {
 
     const combinedClassName = `text-base ${className || ''}`;
 
@@ -12,7 +12,7 @@ const TextH5: React.FC<TextProps> = ({content, className, ...props}) => {
         <h5 {...props}
             className={combinedClassName}
         >
-            {content}
+            {children}
         </h5>
     );
 }

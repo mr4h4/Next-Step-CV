@@ -12,7 +12,7 @@ const Header: React.FC = () => {
             sm:grid-cols-[1fr_auto] sm:items-center sm:text-left
         "
         >
-            <TextH1 className="text-blue-100" content=" - NextStep CV - "/>
+            <TextH1 className="text-blue-100">- NextStep CV -</TextH1>
             <LanguageSelector/>
         </header>
     );

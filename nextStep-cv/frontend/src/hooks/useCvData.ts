@@ -12,7 +12,7 @@ const initialCvData: CvData = {
         address: "",
         email: "",
         phoneNumber: "",
-        description: "",
+        description: ""
     },
     studies: [],
     jobExperience: [],

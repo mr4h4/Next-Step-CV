@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     const {t} = useTranslation();
     return (
         <footer className="text-center py-4 mt-auto">
-            <TextH5 content={t("created-by")} className="text-gray-600"/>
+            <TextH5 className="text-gray-600">{t("created-by")} </TextH5>
             <a
                 href="https://github.com/H3rHex"
                 target="_blank"

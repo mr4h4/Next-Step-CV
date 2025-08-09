@@ -5,6 +5,7 @@
     "email": "",
     "phoneNumber": "",
     "description": "",
+    "photo_path": "",
     "studies": [
         {
             "title": "",
@@ -30,5 +31,13 @@
         }
     ],
     "abilities": [],
-    "otherActivies": []
+    "otherActivities": [],
+    "socialNetworks": [
+        {
+            "name": "",
+            "link_label": "",
+            "logo_link": "",
+            "username_label": ""
+        }
+    ]
 }

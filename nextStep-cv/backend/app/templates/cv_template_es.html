@@ -39,6 +39,22 @@
                     {% endfor %}
                 </ul>
             </div>
+
+            <div class="section" id="socialNetworks">
+                <h3>Redes Sociales</h3>
+                <div class="social-grid">
+                    {% for network in cv.socialNetworks %}
+                    <a href="{{ network.link_label }}" class="social-link-card">
+                        <img src="{{ network.logo_link }}" alt="{{ network.name }} logo" class="social-icon">
+                        <div class="social-text">
+                            <span class="social-name">{{ network.name }}</span>
+                            <span class="social-username">{{ network.username_label }}</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
         </div>
 
         <div id="columnRight">
@@ -86,6 +102,8 @@
                     {% endfor %}
                 </ul>
             </div>
+
+
         </div>
     </main>
 </body>

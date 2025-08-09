@@ -31,7 +31,7 @@ __pycache__
 
 # OTHER FILES
 PersonalFiles
-cv-creator/backend/app/uploads/pdf/*
-cv-creator/backend/app/uploads/photos/*
+nextStep-cv/backend/app/uploads/pdf/*
+nextStep-cv/backend/app/uploads/photos/*
 
 

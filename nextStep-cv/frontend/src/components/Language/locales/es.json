@@ -1,0 +1,15 @@
+{
+  "created-by": "Creado por: H3rHex",
+  "preview-name": "Nombre",
+  "preview-surname": "Apellido/s",
+  "preview-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non odio eget lectus suscipit accumsan quis id mi. Sed varius, odio ut elementum tempor, ex lacus aliquet mauris, eu finibus elit magna eleifend mauris. Nunc laoreet vel massa sapien.",
+  "preview-job-experience-title": "Experiencia laboral",
+  "preview-abilities-title": "Habilidades y Competencias",
+  "preview-data-contact-title": "Datos de Contacto",
+  "preview-address": "Dirección",
+  "preview-email": "Email:",
+  "preview-phoneNumber": "Teléfono:",
+  "preview-studies-title": "Formación y Certificaciones",
+  "preview-langs-title": "Idiomas"
+
+}

@@ -5,7 +5,7 @@ type TextProps = React.HTMLProps<HTMLHeadingElement> & {
 };
 
 const TextH2: React.FC<TextProps> = ({children, ...props}) => {
-    const combinedClassName = `font-bold text-2xl ${props.className || ''}`;
+    const combinedClassName = `font-bold text-lg sm:text-xl md:text-2xl ${props.className || ''}`;
     console.log(combinedClassName);
     return (
         <h2 {...props}

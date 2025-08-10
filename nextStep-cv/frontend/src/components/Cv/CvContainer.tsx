@@ -2,17 +2,26 @@ import React from "react";
 import {useCvData} from "../../hooks/useCvData.ts";
 
 import CvPreview from "./CvPreview.tsx";
+import CvForm from "./CvForm.tsx";
 
 const CvContainer: React.FC = () => {
     const {cvData, setCvData} = useCvData();
 
 
     return (
-        <main className="grid grid-cols-1 xl:grid-cols-3 gap-10 mt-5 mx-auto max-w-screen p-10">
-            <div>
-                {/*CV FORM LOGIC*/}
+        <main className="
+                flex flex-col xl:flex-row items-start justify-center gap-20
+                w-[50vw] h-auto
+                mt-10
+            "
+        >
+            <div className="w-full">
+                <CvForm cvData={cvData} setCvData={setCvData}/>
             </div>
-            <CvPreview cvData={cvData} className="col-span-2"/>
+            <div className="flex-2/3">
+                <CvPreview cvData={cvData}/>
+            </div>
+
         </main>
     );
 }

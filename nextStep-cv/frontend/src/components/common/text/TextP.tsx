@@ -5,7 +5,7 @@ type TextProps = React.HTMLProps<HTMLParagraphElement> & {
 };
 
 const TextP: React.FC<TextProps> = ({children, ...props}) => {
-    const combinedClassName = `font-sans text-sm ${props.className || ''}`;
+    const combinedClassName = `font-sans text-2xs sm:text-xs md:text-sm ${props.className || ''}`;
 
     return (
         <p {...props}

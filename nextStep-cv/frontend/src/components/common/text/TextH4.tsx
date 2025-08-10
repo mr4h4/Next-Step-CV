@@ -5,7 +5,7 @@ type TextProps = React.HTMLProps<HTMLHeadingElement> & {
 };
 
 const TextH4: React.FC<TextProps> = ({children, className, ...props}) => {
-    const combinedClassName = `text-lg ${className || ''}`;
+    const combinedClassName = `text-sm sm:text-base md:text-lg ${className || ''}`;
 
     return (
         <h4 {...props}

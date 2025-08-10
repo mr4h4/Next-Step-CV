@@ -16,8 +16,18 @@
   "form-personal-info-name": "Name",
   "form-personal-info-surname": "Surname/s",
   "form-personal-info-address": "Address",
+  "form-personal-info-description": "Auto Description",
   "form-personal-info-email": "Email",
   "form-personal-info-phoneNumber": "Phone Number",
+  "form-studies-show/hide-button": "Show Studies",
+  "form-studies-add-study": "Add Study",
+  "form-studies-remove-study": "Remove Study",
+  "form-studies-title": "Title/Certificate/Degree...",
+  "form-studies-institution": "Institution",
+  "form-studies-startDate": "Start Date:",
+  "form-studies-endDate": "End Date:",
+  "form-studies-description": "Description",
+
   "social-networks": [
     {
       "name": "LinkedIn",

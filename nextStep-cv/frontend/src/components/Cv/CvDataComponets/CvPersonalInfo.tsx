@@ -2,6 +2,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import type {CvData} from "../../../types/cvDataInterfaces";
 import InputText from "../../common/inputs/InputText.tsx";
+import InputTextArea from "../../common/inputs/InputTextArea.tsx";
 
 interface Props {
     cvDataPersonalInfo: CvData['personalInfo'];
@@ -22,6 +23,13 @@ const CvPersonalInfo: React.FC<Props> = ({cvDataPersonalInfo, setPersonalInfoDat
         setPersonalInfoData(prevInfo => ({
             ...prevInfo,
             surname: event.target.value,
+        }))
+    }
+
+    const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setPersonalInfoData(prevInfo => ({
+            ...prevInfo,
+            description: event.target.value,
         }))
     }
 
@@ -58,6 +66,12 @@ const CvPersonalInfo: React.FC<Props> = ({cvDataPersonalInfo, setPersonalInfoDat
                 placeholder={t("form-personal-info-surname")}
                 onChange={handleSurnameChange}
                 value={cvDataPersonalInfo?.surname ?? ""}
+            />
+
+            <InputTextArea
+                placeholder={t("form-personal-info-description")}
+                onChange={handleDescriptionChange}
+                value={cvDataPersonalInfo?.description ?? ""}
             />
 
             <InputText

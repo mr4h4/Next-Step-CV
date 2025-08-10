@@ -7,6 +7,7 @@ import CvPersonalInfo from "./CvDataComponets/CvPersonalInfo.tsx";
 import TextH2 from "../common/text/TextH2.tsx";
 import Splitter from "../common/Splitter.tsx";
 import CvImageSelector from "./CvDataComponets/CvImageSelector.tsx";
+import CvStudies from "./CvDataComponets/CvStudies.tsx";
 
 interface Props {
     cvData: CvData;
@@ -44,6 +45,18 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
         });
     }, [setCvData]);
 
+    const setStudiesData = React.useCallback((action: React.SetStateAction<CvData['studies']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.studies)
+                : action;
+
+            return {
+                ...prevCvData,
+                studies: newInfo,
+            };
+        });
+    }, [setCvData]);
 
     return (
         <div
@@ -63,6 +76,11 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
             <CvPersonalInfo
                 cvDataPersonalInfo={cvData.personalInfo}
                 setPersonalInfoData={setPersonalInfoData}
+            />
+            <Splitter/>
+            <CvStudies
+                cvDataStudies={cvData.studies}
+                setCvDataStudies={setStudiesData}
             />
             <Splitter/>
         </div>

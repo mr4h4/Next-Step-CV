@@ -30,7 +30,12 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                     alt={cvData.image.altText}
                 />
                 <TextH3 className="font-semibold">{`${cvData.personalInfo.name === "" ? t("preview-name") : cvData.personalInfo.name} ${cvData.personalInfo.surname === "" ? t("preview-surname") : cvData.personalInfo.surname}`}</TextH3>
-                <TextP>{cvData.personalInfo.description}</TextP>
+
+                <div className="max-w-[90%] break-words overflow-hidden">
+                    <TextP className="break-words">{cvData.personalInfo.description}</TextP>
+                </div>
+
+
 
                 <TextH4
                     className="font-bold text-blue-600"

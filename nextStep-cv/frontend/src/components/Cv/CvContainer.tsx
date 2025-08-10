@@ -7,6 +7,9 @@ import CvForm from "./CvForm.tsx";
 const CvContainer: React.FC = () => {
     const {cvData, setCvData} = useCvData();
 
+    const debugCvData = () => {
+        console.log(cvData);
+    }
 
     return (
         <main className="
@@ -21,7 +24,6 @@ const CvContainer: React.FC = () => {
             <div className="flex-2/3">
                 <CvPreview cvData={cvData}/>
             </div>
-
         </main>
     );
 }

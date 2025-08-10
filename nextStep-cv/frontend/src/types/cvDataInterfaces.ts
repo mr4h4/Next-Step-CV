@@ -17,7 +17,6 @@ export interface Study {
     institution: string;
     startDate: string;
     endDate: string;
-    description: string;
 }
 
 export interface JobExperience {

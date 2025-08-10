@@ -19,14 +19,22 @@
   "form-personal-info-description": "Auto Description",
   "form-personal-info-email": "Email",
   "form-personal-info-phoneNumber": "Phone Number",
-  "form-studies-show/hide-button": "Show Studies",
+  "form-studies-show-button": "Show Studies",
+  "form-studies-hide-button": "Hide Studies",
   "form-studies-add-study": "Add Study",
   "form-studies-remove-study": "Remove Study",
   "form-studies-title": "Title/Certificate/Degree...",
   "form-studies-institution": "Institution",
-  "form-studies-startDate": "Start Date:",
-  "form-studies-endDate": "End Date:",
-  "form-studies-description": "Description",
+  "form-jobExperience-show-button": "Show Jobs",
+  "form-jobExperience-hide-button": "Hide Jobs",
+  "form-jobExperience-add-job": "Add Job",
+  "form-jobExperience-remove-job": "Remove Job",
+  "form-jobExperience-role": "Role",
+  "form-jobExperience-company": "Company / Organization...",
+  "form-startDate": "Start Date:",
+  "form-endDate": "End Date:",
+  "form-description": "Description",
+
 
   "social-networks": [
     {

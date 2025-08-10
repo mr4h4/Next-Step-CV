@@ -8,6 +8,7 @@ import TextH2 from "../common/text/TextH2.tsx";
 import Splitter from "../common/Splitter.tsx";
 import CvImageSelector from "./CvDataComponets/CvImageSelector.tsx";
 import CvStudies from "./CvDataComponets/CvStudies.tsx";
+import CvJobExperience from "./CvDataComponets/CvJobExperience.tsx";
 
 interface Props {
     cvData: CvData;
@@ -58,6 +59,74 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
         });
     }, [setCvData]);
 
+
+    const setJobExperienceData = React.useCallback((action: React.SetStateAction<CvData['jobExperience']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.jobExperience)
+                : action;
+
+            return {
+                ...prevCvData,
+                jobExperience: newInfo,
+            };
+        });
+    }, [setCvData]);
+
+    const setLanguagesData = React.useCallback((action: React.SetStateAction<CvData['languages']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.languages)
+                : action;
+
+            return {
+                ...prevCvData,
+                languages: newInfo,
+            };
+        });
+    }, [setCvData]);
+
+    const setAbilitiesData = React.useCallback((action: React.SetStateAction<CvData['abilities']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.abilities)
+                : action;
+
+            return {
+                ...prevCvData,
+                abilities: newInfo,
+            };
+        });
+    }, [setCvData]);
+
+    const setOtherActivitiesData = React.useCallback((action: React.SetStateAction<CvData['otherActivities']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.otherActivities)
+                : action;
+
+            return {
+                ...prevCvData,
+                otherActivities: newInfo,
+            };
+        });
+    }, [setCvData]);
+
+    const setSocialNetworksData = React.useCallback((action: React.SetStateAction<CvData['socialNetworks']>) => {
+        setCvData(prevCvData => {
+            const newInfo = typeof action === 'function'
+                ? action(prevCvData.socialNetworks)
+                : action;
+
+            return {
+                ...prevCvData,
+                socialNetworks: newInfo,
+            };
+        });
+    }, [setCvData]);
+
+
+
     return (
         <div
             className="
@@ -81,6 +150,12 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
             <CvStudies
                 cvDataStudies={cvData.studies}
                 setCvDataStudies={setStudiesData}
+            />
+            <Splitter/>
+            <CvJobExperience
+                cvDataJobExperience={cvData.jobExperience}
+                setCvDataJobExperience={setJobExperienceData}
+
             />
             <Splitter/>
         </div>

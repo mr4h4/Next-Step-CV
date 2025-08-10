@@ -3,36 +3,36 @@ import type {CvData} from "../../../types/cvDataInterfaces";
 
 import {useTranslation} from "react-i18next";
 import Button from "../../common/Button.tsx";
-import Study from "../../common/inputs/special-Inputs/Study.tsx";
 import Splitter from "../../common/Splitter.tsx";
+import JobExperience from "../../common/inputs/special-Inputs/JobExperience.tsx";
 
 interface Props {
-    cvDataStudies: CvData['studies'];
-    setCvDataStudies: React.Dispatch<React.SetStateAction<CvData['studies']>>;
+    cvDataJobExperience: CvData['jobExperience'];
+    setCvDataJobExperience: React.Dispatch<React.SetStateAction<CvData['jobExperience']>>;
 }
 
-const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
+const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExperience}) => {
     const {t} = useTranslation();
     const [isShowing, setIsShowing] = useState<boolean>(false);
 
     const handleAddStudy = () => {
-        const emptyStudy: CvData['studies'][0] = {
-            title: "",
-            institution: "",
+        const emptyStudy: CvData['jobExperience'][0] = {
+            role: "",
+            company: "",
             startDate: "",
             endDate: "",
             description: ""
         };
 
         // El setter espera el objeto completo, así que actualizamos la propiedad 'studies'.
-        setCvDataStudies(prevStudies => [
+        setCvDataJobExperience(prevStudies => [
             ...prevStudies,
             emptyStudy
         ]);
     };
 
     const handleRemoveLastStudy = () => {
-        setCvDataStudies(prevStudies => {
+        setCvDataJobExperience(prevStudies => {
             return prevStudies.slice(0, -1);
         });
     };
@@ -40,7 +40,7 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
 
     // SET DATA
     const handleStudyChange = (index: number, name: string, value: string) => {
-        setCvDataStudies(prevStudies => {
+        setCvDataJobExperience(prevStudies => {
             return prevStudies.map((study, i) => {
                 if (i === index) {
                     return {...study, [name]: value};
@@ -51,25 +51,25 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
     }
 
 
-    return(
+    return (
         <div className="flex flex-col gap-5 w-full">
             <Button
                 className={`${isShowing ? "bg-amber-100 hover:bg-amber-200" : "bg-blue-300 hover:bg-blue-400"} w-full`}
                 onClick={() => setIsShowing(!isShowing)}
-                content={isShowing ? t("form-studies-hide-button") : t("form-studies-show-button")}
+                content={isShowing ? t("form-jobExperience-hide-button") : t("form-jobExperience-show-button")}
             />
 
             {isShowing && (
                 <div className="flex flex-col gap-5">
-                    {cvDataStudies.length > 0 && (
+                    {cvDataJobExperience.length > 0 && (
                         <div className="flex flex-col gap-5">
-                            {cvDataStudies.map((study, index) => (
+                            {cvDataJobExperience.map((study, index) => (
                                 <>
-                                    <Study
+                                    <JobExperience
                                         key={index}
-                                        studyData={study}
-                                        studyIndex={index}
-                                        onStudyChange={handleStudyChange}
+                                        jobData={study}
+                                        jobIndex={index}
+                                        onJobChange={handleStudyChange}
                                     />
                                     <Splitter/>
                                 </>
@@ -79,12 +79,12 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
                     )}
                     <Button
                         className="bg-green-300 hover:bg-green-400"
-                        content={t("form-studies-add-study")}
+                        content={t("form-jobExperience-add-job")}
                         onClick={() => handleAddStudy()}
                     />
                     <Button
                         className="bg-red-300 hover:bg-red-400"
-                        content={t("form-studies-remove-study")}
+                        content={t("form-jobExperience-remove-job")}
                         onClick={() => handleRemoveLastStudy()}
                     />
                 </div>
@@ -93,4 +93,4 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
     );
 }
 
-export default CvStudies;
+export default CvJobExperience;

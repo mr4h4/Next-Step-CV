@@ -19,18 +19,31 @@ const CvContainer: React.FC = () => {
     const notClickableClass: string = "bg-gray-400 text-gray-700 cursor-not-allowed opacity-40 w-full";
 
     const handleSendCv = async () => {
+        setCvDownloadUrl("");
+
         try {
             const formData = new FormData();
             formData.append("lang", localStorage.getItem("i18nextLng") || "es");
             formData.append("cv", JSON.stringify(cvData));
 
             if (cvData.image.file) {
-                formData.append("photo", cvData.image.file); // este es el archivo real
+                formData.append("photo", cvData.image.file);
+            } else {
+                try {
+                    const response = await fetch(cvData.image.url);
+                    const imageBlob = await response.blob();
+                    // Crea un objeto File a partir del Blob, dándole un nombre
+                    const imageFileToSend = new File([imageBlob], "defaultUserImage.svg", {type: imageBlob.type});
+                    formData.append("photo", imageFileToSend);
+                } catch (error) {
+                    console.error("Error al obtener la imagen por defecto:", error);
+                    return;
+                }
             }
 
             const response = await fetch('/api/createCV', {
                 method: 'POST',
-                body: formData // no ponemos headers, fetch lo hace solo para FormData
+                body: formData
             });
 
             if (!response.ok) {
@@ -38,15 +51,12 @@ const CvContainer: React.FC = () => {
             }
 
             const result = await response.json();
-            const url = result.cv_url;
-            console.log(url);
-            setCvDownloadUrl(url);
-
+            setCvDownloadUrl(result.cv_url);
 
         } catch (error) {
             console.error(error);
         }
-    }
+    };
 
     return (
         <div className="container mx-auto px-4">
@@ -87,7 +97,7 @@ const CvContainer: React.FC = () => {
                 
                 <Link
                     href={cvDownloadUrl || "#"}
-                    download="mi_cv.pdf"
+                    download="cv.pdf"
                     content={t("download-cv-button")}
                     className={cvDownloadUrl ? clickableClass : notClickableClass}
                 />

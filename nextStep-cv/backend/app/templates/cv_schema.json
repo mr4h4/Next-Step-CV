@@ -1,43 +1,21 @@
 {
-    "name": "",
-    "surname": "",
-    "location": "",
-    "email": "",
-    "phoneNumber": "",
-    "description": "",
-    "photo_path": "",
-    "studies": [
-        {
-            "title": "",
-            "institution": "",
-            "startDate": "",
-            "endDate": "",
-            "description": ""
-        }
-    ],
-    "jobExperience": [
-        {
-            "role": "",
-            "company": "",
-            "startDate": "",
-            "endDate": "",
-            "description": ""
-        }
-    ],
-    "languages": [
-        {
-            "name": "",
-            "level": ""
-        }
-    ],
-    "abilities": [],
+    "image": {
+        "url": "src/assets/defaultUserImage.svg",
+        "altText": "Default User Image",
+        "file": null
+    },
+    "personalInfo": {
+        "name": "",
+        "surname": "",
+        "address": "",
+        "email": "",
+        "phoneNumber": "",
+        "description": ""
+    },
+    "studies": [],
+    "jobExperience": [],
+    "languages": [],
+    "skills": [],
     "otherActivities": [],
-    "socialNetworks": [
-        {
-            "name": "",
-            "link_label": "",
-            "logo_link": "",
-            "username_label": ""
-        }
-    ]
+    "socialNetworks": []
 }

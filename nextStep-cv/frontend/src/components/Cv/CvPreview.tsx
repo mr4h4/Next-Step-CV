@@ -24,7 +24,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
             {/*RIGHT COL*/}
             <div className="p-5 flex flex-col gap-3 flex-[2.5] w-full">
                 <img
-                    className="w-24 h-24 rounded-full
+                    className="w-32 h-32 rounded-full
                     "
                     src={cvData.image.url}
                     alt={cvData.image.altText}
@@ -138,7 +138,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                 <TextH4 className={"font-bold"} >{t("preview-activities-title")}</TextH4>
                 <Splitter/>
                 <div className={"p-2"}>
-                    <ul>
+                    <ul className="flex flex-col gap-2">
                         {cvData.otherActivities.map((activity, index) => (
                             <li key={index} >
                                 <TextP>{activity}</TextP>

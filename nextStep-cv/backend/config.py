@@ -17,6 +17,8 @@ PDF_FOLDER = 'app/uploads/pdf'
 PHOTOS_FOLDER = 'app/uploads/photos'
 BASE_URL = 'http://localhost:5000/uploads/pdf'
 
+TEMP_FILE_EXPIRATION = 60 * 5 # 5 minutes
+
 # DEFAULT PRITS
 ERROR = f'{BOLD}{RED}[ERROR]{RESET}'
 INFO = f'{BOLD}{BLUE}[INFO]{RESET}'

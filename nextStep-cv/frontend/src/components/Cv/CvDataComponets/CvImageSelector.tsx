@@ -20,7 +20,8 @@ const CvImageSelector: React.FC<Props> = ({cvDataImage, setImageData}) => {
             setImageData(prevImage => ({
                 ...prevImage,
                 url: url,
-                altText: "User Image"
+                altText: "User Image",
+                file: file
             }));
         }
     }

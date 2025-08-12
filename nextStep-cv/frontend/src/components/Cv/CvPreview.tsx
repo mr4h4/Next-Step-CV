@@ -21,7 +21,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
         <div
             className={combinedClassName}
         >
-            {/*RIGTH COL*/}
+            {/*RIGHT COL*/}
             <div className="p-5 flex flex-col gap-3 flex-[2.5] w-full">
                 <img
                     className="w-24 h-24 rounded-full
@@ -35,8 +35,6 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                     <TextP className="break-words">{cvData.personalInfo.description}</TextP>
                 </div>
 
-
-
                 <TextH4
                     className="font-bold text-blue-600"
                 >
@@ -49,7 +47,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                             <TextH5 className={"font-semibold"}>{jobExperience.role}</TextH5>
                             <TextP className={"text-gray-500"}>
                                 <span className="font-semibold">{jobExperience.company}</span>
-                                <span> | {jobExperience.startDate} - {jobExperience.endDate}</span>
+                                <span> | {jobExperience.startDate} - {jobExperience.endDate === "" ? t("preview-actuality") : jobExperience.endDate}</span>
                             </TextP>
                             <TextP>{jobExperience.description}</TextP>
                         </div>
@@ -116,7 +114,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                         <div key={index}>
                             <TextH5 className={"font-semibold"}>{study.title}</TextH5>
                             <TextP>{study.institution}</TextP>
-                            <TextP>{`${study.startDate} - ${study.endDate}`}</TextP>
+                            <TextP>{`${study.startDate} - ${study.endDate === "" ? t("preview-actuality") : study.endDate}`}</TextP>
                         </div>
                     ))}
                 </div>

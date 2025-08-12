@@ -53,7 +53,7 @@ const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExpe
     return (
         <div className="flex flex-col gap-5 w-full">
             <Button
-                className={`${isShowing ? "bg-amber-100 hover:bg-amber-200" : "bg-blue-300 hover:bg-blue-400"} w-full`}
+                className={`${isShowing ? "bg-amber-200 hover:bg-amber-300" : "bg-blue-300 hover:bg-blue-400"} w-full`}
                 onClick={() => setIsShowing(!isShowing)}
                 content={isShowing ? t("form-jobExperience-hide-button") : t("form-jobExperience-show-button")}
             />

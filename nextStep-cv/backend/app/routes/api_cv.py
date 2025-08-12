@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Blueprint, current_app
+from flask import Flask, request, jsonify, Blueprint, current_app, send_from_directory
 from werkzeug.utils import secure_filename
 
 import os
@@ -62,3 +62,9 @@ def generateCV():
 
         # Return error to caller (usually web frontend)
         return jsonify({"error":str(error)}),400
+    
+
+@cv_bp.route('/uploads/pdf/<path:filename>', methods=['GET'])
+def serve_pdf(filename):
+    return send_from_directory(config.PDF_FOLDER, filename)
+

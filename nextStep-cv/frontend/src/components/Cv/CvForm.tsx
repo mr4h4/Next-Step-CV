@@ -12,6 +12,7 @@ import CvJobExperience from "./CvDataComponets/CvJobExperience.tsx";
 import CvLangs from "./CvDataComponets/CvLangs.tsx";
 import CvSkills from "./CvDataComponets/CvSkills.tsx";
 import CvOtherActivities from "./CvDataComponets/CvOtherActivities.tsx";
+import CvSocialNetworks from "./CvDataComponets/CvSocialNetworks.tsx";
 
 interface Props {
     cvData: CvData;
@@ -176,6 +177,10 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
                 setActivities={setOtherActivitiesData}
             />
             <Splitter/>
+            <CvSocialNetworks
+                cvSocialNetworksData={cvData.socialNetworks}
+                setCvSocialNetworksData={setSocialNetworksData}
+            />
         </div>
     );
 }

@@ -45,7 +45,7 @@ export interface CvData {
     studies: Study[];
     jobExperience: JobExperience[];
     languages: Language[];
-    abilities: string[];
+    skills: string[];
     otherActivities: string[];
     socialNetworks: SocialNetwork[];
 }

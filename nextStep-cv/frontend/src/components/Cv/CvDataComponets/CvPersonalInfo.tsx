@@ -1,6 +1,8 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
 import type {CvData} from "../../../types/cvDataInterfaces";
+
+// Components
 import InputText from "../../common/inputs/InputText.tsx";
 import InputTextArea from "../../common/inputs/InputTextArea.tsx";
 

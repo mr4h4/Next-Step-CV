@@ -15,8 +15,8 @@ const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExpe
     const {t} = useTranslation();
     const [isShowing, setIsShowing] = useState<boolean>(false);
 
-    const handleAddStudy = () => {
-        const emptyStudy: CvData['jobExperience'][0] = {
+    const handleAddJob = () => {
+        const emptyJob: CvData['jobExperience'][0] = {
             role: "",
             company: "",
             startDate: "",
@@ -24,28 +24,27 @@ const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExpe
             description: ""
         };
 
-        // El setter espera el objeto completo, así que actualizamos la propiedad 'studies'.
-        setCvDataJobExperience(prevStudies => [
-            ...prevStudies,
-            emptyStudy
+        setCvDataJobExperience(prevJobs => [
+            ...prevJobs,
+            emptyJob
         ]);
     };
 
-    const handleRemoveLastStudy = () => {
-        setCvDataJobExperience(prevStudies => {
-            return prevStudies.slice(0, -1);
+    const handleRemoveLastJob = () => {
+        setCvDataJobExperience(prevJobs => {
+            return prevJobs.slice(0, -1);
         });
     };
 
 
-    // SET DATA
-    const handleStudyChange = (index: number, name: string, value: string) => {
-        setCvDataJobExperience(prevStudies => {
-            return prevStudies.map((study, i) => {
+    // name is the value who's going to change -> Example: name : role
+    const handleJobChange = (index: number, name: string, value: string) => {
+        setCvDataJobExperience(prevJobs => {
+            return prevJobs.map((job, i) => {
                 if (i === index) {
-                    return {...study, [name]: value};
+                    return {...job, [name]: value};
                 }
-                return study;
+                return job;
             });
         });
     }
@@ -69,7 +68,7 @@ const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExpe
                                         key={index}
                                         jobData={study}
                                         jobIndex={index}
-                                        onJobChange={handleStudyChange}
+                                        onJobChange={handleJobChange}
                                     />
                                     <Splitter/>
                                 </>
@@ -80,12 +79,12 @@ const CvJobExperience: React.FC<Props> = ({cvDataJobExperience, setCvDataJobExpe
                     <Button
                         className="bg-green-300 hover:bg-green-400"
                         content={t("form-jobExperience-add-job")}
-                        onClick={() => handleAddStudy()}
+                        onClick={() => handleAddJob()}
                     />
                     <Button
                         className="bg-red-300 hover:bg-red-400"
                         content={t("form-jobExperience-remove-job")}
-                        onClick={() => handleRemoveLastStudy()}
+                        onClick={() => handleRemoveLastJob()}
                     />
                 </div>
             )}

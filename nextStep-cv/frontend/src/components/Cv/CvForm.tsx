@@ -9,6 +9,9 @@ import Splitter from "../common/Splitter.tsx";
 import CvImageSelector from "./CvDataComponets/CvImageSelector.tsx";
 import CvStudies from "./CvDataComponets/CvStudies.tsx";
 import CvJobExperience from "./CvDataComponets/CvJobExperience.tsx";
+import CvLangs from "./CvDataComponets/CvLangs.tsx";
+import CvSkills from "./CvDataComponets/CvSkills.tsx";
+import CvOtherActivities from "./CvDataComponets/CvOtherActivities.tsx";
 
 interface Props {
     cvData: CvData;
@@ -86,15 +89,15 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
         });
     }, [setCvData]);
 
-    const setAbilitiesData = React.useCallback((action: React.SetStateAction<CvData['abilities']>) => {
+    const setSkillsData = React.useCallback((action: React.SetStateAction<CvData['skills']>) => {
         setCvData(prevCvData => {
             const newInfo = typeof action === 'function'
-                ? action(prevCvData.abilities)
+                ? action(prevCvData.skills)
                 : action;
 
             return {
                 ...prevCvData,
-                abilities: newInfo,
+                skills: newInfo,
             };
         });
     }, [setCvData]);
@@ -156,6 +159,21 @@ const CvForm: React.FC<Props> = ({cvData, setCvData}) => {
                 cvDataJobExperience={cvData.jobExperience}
                 setCvDataJobExperience={setJobExperienceData}
 
+            />
+            <Splitter/>
+            <CvLangs
+                cvLangsData={cvData.languages}
+                setCvLangsData={setLanguagesData}
+            />
+            <Splitter/>
+            <CvSkills
+                cvSkills={cvData.skills}
+                setSkills={setSkillsData}
+            />
+            <Splitter/>
+            <CvOtherActivities
+                cvActivities={cvData.otherActivities}
+                setActivities={setOtherActivitiesData}
             />
             <Splitter/>
         </div>

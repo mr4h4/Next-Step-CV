@@ -56,11 +56,11 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                     ))}
                 </div>
 
-                <TextH4 className="font-bold text-blue-600">{t("preview-abilities-title")}</TextH4>
+                <TextH4 className="font-bold text-blue-600">{t("preview-skills-title")}</TextH4>
 
                 <ul>
-                    {cvData.abilities.map((ability, index) => (
-                        <TextP key={index}>{ability}</TextP>
+                    {cvData.skills.map((skill, index) => (
+                        <TextP key={index}>{skill}</TextP>
                     ))}
                 </ul>
 
@@ -117,7 +117,6 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                             <TextH5 className={"font-semibold"}>{study.title}</TextH5>
                             <TextP>{study.institution}</TextP>
                             <TextP>{`${study.startDate} - ${study.endDate}`}</TextP>
-                            <TextP>{study.description}</TextP>
                         </div>
                     ))}
                 </div>

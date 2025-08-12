@@ -17,7 +17,7 @@ const initialCvData: CvData = {
     studies: [],
     jobExperience: [],
     languages: [],
-    abilities: [],
+    skills: [],
     otherActivities: [],
     socialNetworks: [],
 };

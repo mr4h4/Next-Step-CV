@@ -15,7 +15,7 @@ interface Props {
 const CvStudy: React.FC<Props> = ({studyData, studyIndex, onStudyChange}) => {
     const {t} = useTranslation();
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         onStudyChange(studyIndex, name, value);
     };

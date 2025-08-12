@@ -21,7 +21,6 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
             institution: "",
             startDate: "",
             endDate: "",
-            description: ""
         };
 
         // El setter espera el objeto completo, así que actualizamos la propiedad 'studies'.
@@ -38,7 +37,7 @@ const CvStudies: React.FC<Props> = ({cvDataStudies, setCvDataStudies}) => {
     };
 
 
-    // SET DATA
+    // name is the value who's going to change -> Example: name : instituion
     const handleStudyChange = (index: number, name: string, value: string) => {
         setCvDataStudies(prevStudies => {
             return prevStudies.map((study, i) => {

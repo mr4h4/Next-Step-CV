@@ -6,7 +6,7 @@ type TextProps = React.HTMLProps<HTMLHeadingElement> & {
 
 const TextH5: React.FC<TextProps> = ({children, className, ...props}) => {
 
-    const combinedClassName = `text-base ${className || ''}`;
+    const combinedClassName = `text-xs sm:text-sm md:text-base ${className || ''}`;
 
     return (
         <h5 {...props}

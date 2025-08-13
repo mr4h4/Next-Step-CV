@@ -1,5 +1,6 @@
 export interface Image {
     url: string;
+    file?: File | null;
     altText?: string
 }
 
@@ -17,7 +18,6 @@ export interface Study {
     institution: string;
     startDate: string;
     endDate: string;
-    description: string;
 }
 
 export interface JobExperience {
@@ -46,7 +46,7 @@ export interface CvData {
     studies: Study[];
     jobExperience: JobExperience[];
     languages: Language[];
-    abilities: string[];
+    skills: string[];
     otherActivities: string[];
     socialNetworks: SocialNetwork[];
 }

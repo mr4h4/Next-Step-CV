@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV_{{ cv.name }} {{ cv.surname }}</title>
+    <title>CV_{{ cv.personalInfo.name }} {{ cv.personalInfo.surname }}</title>
     <link rel="stylesheet" href="{{css_path}}">
     <link rel="stylesheet" href="cv_style.css">
 </head>
@@ -13,9 +13,10 @@
     <main>
         <div id="columnLeft">
             <div class="section" id="profile">
-                <img src="{{ photo_path }}" alt="Profile picture of {{ cv.name }} {{ cv.surname }}" />
-                <h1>{{ cv.name }} {{ cv.surname }}</h1>
-                <p>{{ cv.description }}</p>
+                <img src="{{ photo_path }}"
+                    alt="Profile picture of {{ cv.personalInfo.name }} {{ cv.personalInfo.surname }}" />
+                <h1>{{ cv.personalInfo.name }} {{ cv.personalInfo.surname }}</h1>
+                <p>{{ cv.personalInfo.description }}</p>
             </div>
 
             <div class="section" id="jobExperience">
@@ -35,8 +36,8 @@
             <div class="section" id="abilities">
                 <h3>Skills and Competencies</h3>
                 <ul>
-                    {% for abilitie in cv.abilities %}
-                    <li>{{ abilitie }}</li>
+                    {% for skill in cv.skills %}
+                    <li>{{ skill }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -61,9 +62,9 @@
         <div id="columnRight">
             <div class="section" id="contactInfo">
                 <h3>Contact Information</h3>
-                <p>{{ cv.location }}</p>
-                <p><strong>Email:</strong> {{ cv.email }}</p>
-                <p><strong>Phone:</strong> {{ cv.phoneNumber }}</p>
+                <p>{{ cv.personalInfo.address }}</p>
+                <p><strong>Email:</strong> {{ cv.personalInfo.email }}</p>
+                <p><strong>Phone:</strong> {{ cv.personalInfo.phoneNumber }}</p>
             </div>
 
             <div class="section" id="studies">
@@ -72,10 +73,9 @@
                 <div class="study-card">
                     <h4>{{ study.title }}</h4>
                     <div class="study-details">
-                        <p><strong>{{ study.institution }}</strong></p>
+                        <p><strong>{{ study.university }}</strong></p>
                         <p><time datetime="{{ study.startDate }}">{{ study.startDate }}</time> - <time
                                 datetime="{{ study.endDate or 'Present' }}">{{ study.endDate or "Present" }}</time></p>
-                        <p>{{ study.description }}</p>
                     </div>
                 </div>
                 {% endfor %}

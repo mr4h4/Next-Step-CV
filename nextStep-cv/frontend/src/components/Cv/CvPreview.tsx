@@ -15,21 +15,25 @@ interface CvPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
     const { t } = useTranslation();
-    const combinedClassName = ` hidden xl:grid grid-cols-3 w-[210mm] h-[297mm] bg-gray-200 border-2 border-[#e3e3e3] rounded-lg ${rest.className || ''}`;
+    const combinedClassName = ` hidden xl:flex xl:flex-row w-[210mm] h-[297mm] bg-gray-200 border-2 border-[#e3e3e3] rounded-lg ${rest.className || ''}`;
 
     return (
         <div
             className={combinedClassName}
         >
-            {/*RIGTH COL*/}
-            <div className="p-5 flex flex-col gap-3 col-span-2">
+            {/*RIGHT COL*/}
+            <div className="p-5 flex flex-col gap-3 flex-[2.5] w-full">
                 <img
-                    className="w-24 h-24"
+                    className="w-32 h-32 rounded-full
+                    "
                     src={cvData.image.url}
                     alt={cvData.image.altText}
                 />
                 <TextH3 className="font-semibold">{`${cvData.personalInfo.name === "" ? t("preview-name") : cvData.personalInfo.name} ${cvData.personalInfo.surname === "" ? t("preview-surname") : cvData.personalInfo.surname}`}</TextH3>
-                <TextP>{cvData.personalInfo.description}</TextP>
+
+                <div className="max-w-[90%] break-words overflow-hidden">
+                    <TextP className="break-words">{cvData.personalInfo.description}</TextP>
+                </div>
 
                 <TextH4
                     className="font-bold text-blue-600"
@@ -43,18 +47,18 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                             <TextH5 className={"font-semibold"}>{jobExperience.role}</TextH5>
                             <TextP className={"text-gray-500"}>
                                 <span className="font-semibold">{jobExperience.company}</span>
-                                <span> | {jobExperience.startDate} - {jobExperience.endDate}</span>
+                                <span> | {jobExperience.startDate} - {jobExperience.endDate === "" ? t("preview-actuality") : jobExperience.endDate}</span>
                             </TextP>
                             <TextP>{jobExperience.description}</TextP>
                         </div>
                     ))}
                 </div>
 
-                <TextH4 className="font-bold text-blue-600">{t("preview-abilities-title")}</TextH4>
+                <TextH4 className="font-bold text-blue-600">{t("preview-skills-title")}</TextH4>
 
                 <ul>
-                    {cvData.abilities.map((ability, index) => (
-                        <TextP key={index}>{ability}</TextP>
+                    {cvData.skills.map((skill, index) => (
+                        <TextP key={index}>{skill}</TextP>
                     ))}
                 </ul>
 
@@ -78,7 +82,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
             </div>
             {/*LEFT COL*/}
             <div
-                className="p-5 bg-slate-700 text-white"
+                className="flex-[1.5] p-5 bg-slate-700 text-white"
             >
                 <TextH4 className={"font-bold"}>{t("preview-data-contact-title")}</TextH4>
                 <Splitter/>
@@ -86,12 +90,19 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                     <TextP>{cvData.personalInfo.address === "" ? t("preview-address") : cvData.personalInfo.address}</TextP>
                     <TextP>
                         <span className={"font-semibold"}>
-                           {t("preview-email")} {cvData.personalInfo.email}
+                           {t("preview-email")}
+                        </span>
+                        <span>
+                            {cvData.personalInfo.email}
                         </span>
                     </TextP>
+
                     <TextP>
                         <span className={"font-semibold"}>
-                           {t("preview-phoneNumber")} {cvData.personalInfo.phoneNumber}
+                           {t("preview-phoneNumber")}
+                        </span>
+                        <span>
+                            {cvData.personalInfo.phoneNumber}
                         </span>
                     </TextP>
                 </div>
@@ -103,8 +114,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                         <div key={index}>
                             <TextH5 className={"font-semibold"}>{study.title}</TextH5>
                             <TextP>{study.institution}</TextP>
-                            <TextP>{`${study.startDate} - ${study.endDate}`}</TextP>
-                            <TextP>{study.description}</TextP>
+                            <TextP>{`${study.startDate} - ${study.endDate === "" ? t("preview-actuality") : study.endDate}`}</TextP>
                         </div>
                     ))}
                 </div>
@@ -128,7 +138,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ cvData, ...rest }) => {
                 <TextH4 className={"font-bold"} >{t("preview-activities-title")}</TextH4>
                 <Splitter/>
                 <div className={"p-2"}>
-                    <ul>
+                    <ul className="flex flex-col gap-2">
                         {cvData.otherActivities.map((activity, index) => (
                             <li key={index} >
                                 <TextP>{activity}</TextP>

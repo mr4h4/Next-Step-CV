@@ -3,8 +3,9 @@ import type {CvData} from "../types/cvDataInterfaces.ts";
 
 const initialCvData: CvData = {
     image: {
-        url: "src/assets/defaultUserImage.svg",
-        altText: "Default User Image"
+        url: "public/defaultUserImage.svg",
+        altText: "Default User Image",
+        file: null
     },
     personalInfo: {
         name: "",
@@ -17,7 +18,7 @@ const initialCvData: CvData = {
     studies: [],
     jobExperience: [],
     languages: [],
-    abilities: [],
+    skills: [],
     otherActivities: [],
     socialNetworks: [],
 };

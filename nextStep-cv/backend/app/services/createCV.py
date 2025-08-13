@@ -7,29 +7,31 @@ import config
 
 PDF_FOLDER = config.PDF_FOLDER
 BASE_URL = config.BASE_URL
+BASE_DIR= config.BASE_DIR
 
 
 def html_to_pdf(html:str) ->  bytes:
-    base_dir = current_app.root_path
+    base_dir = BASE_DIR
     pdf_bytes=HTML(string=html, base_url=base_dir).write_pdf()
     return pdf_bytes
 
+
 def save_pdf_and_get_url(pdf_bytes: bytes) -> str:
-    if not os.path.exists(PDF_FOLDER):
-        os.makedirs(PDF_FOLDER)
+    pdf_dir = os.path.join(PDF_FOLDER)
+    if not os.path.exists(pdf_dir):
+        os.makedirs(pdf_dir)
     
     filename = f'cv_{uuid.uuid4()}.pdf'
-    filepath = os.path.join(PDF_FOLDER, filename)
+    filepath = os.path.join(pdf_dir, filename)
 
     with open(filepath, 'wb') as f:
         f.write(pdf_bytes)
 
-    return f"{BASE_URL}/{filename}"
-
+    return filepath
 
 
 def createCV(photo, cv_data, lang):
-    css_path = f'{current_app.root_path}{config.CSS_PATH}'
+    css_path = config.CSS_PATH
     print(f'cssPath: {css_path}')
     # RENDER HTML TEMPLATE
     rendered_html = render_template(f'cv_template_{lang}.html', cv=cv_data, photo_path=photo, css_path=css_path)

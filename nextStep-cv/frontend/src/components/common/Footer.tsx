@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                 className="hover:opacity-80 transition-opacity duration-300 flex items-center justify-center"
             >
                 <img
-                    src="src/assets/github.svg"
+                    src="../../../public/github.svg"
                     alt="GitHub Icon"
                     className="w-16 h-16"
                 />

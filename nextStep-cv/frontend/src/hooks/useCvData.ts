@@ -3,7 +3,7 @@ import type {CvData} from "../types/cvDataInterfaces.ts";
 
 const initialCvData: CvData = {
     image: {
-        url: "src/assets/defaultUserImage.svg",
+        url: "public/defaultUserImage.svg",
         altText: "Default User Image",
         file: null
     },

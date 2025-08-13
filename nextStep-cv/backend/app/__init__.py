@@ -3,11 +3,13 @@ from flask_cors import CORS
 import os
 
 import config
-from .routes import api_cv
+from .routes import api_cv, static
 
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(api_cv.cv_bp)
+    app.register_blueprint(static.static_bp)
+    
     os.makedirs(config.PHOTOS_FOLDER, exist_ok=True)
     os.makedirs(config.PDF_FOLDER, exist_ok=True)
 

@@ -28,10 +28,13 @@ dist-ssr
 
 #Python
 __pycache__
+*.pyc
 
 # OTHER FILES
 PersonalFiles
 nextStep-cv/backend/app/uploads/pdf/*
 nextStep-cv/backend/app/uploads/photos/*
+nextStep-cv/backend/app/uploads/*
+
 
 

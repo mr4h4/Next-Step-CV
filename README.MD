@@ -26,14 +26,17 @@
 </center>
 
 ## Getting Started
-This section explains how to get the project up and running.
+Follow these steps to run the app:
 
 1.  **Install Python**
    
     * On Linux, it is usually installed by default.
-    * For other systems, go to: https://www.python.org/
+    * Windows/Mac: : https://www.python.org/
+        - OR USE <a href="/WINDOWS-SCRIPTS/install-python.cmd">INSTALATION SCRIPT ON WINDOWS<a/> | JUST DO DOUBLE CLICK OVER FILE
 
 2.  **Start a virtual environment (optional but recommended)**
+
+    This keeps the app separate from your other Python programs.
     * Linux/Mac
         ```bash
         python3 -m venv venv
@@ -50,6 +53,11 @@ This section explains how to get the project up and running.
     ```bash
     pip install -r requirements.txt
     ```
+    ⚠️ Windows users need GTK-3 for PDFs:
+    <a href="https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe">DOWNLOAD GTK-3</a>
+
+    Or use the script in <a href="/WINDOWS-SCRIPTS/install-gtk3.cmd">INSTALATION SCRIPT ON WINDOWS<a/> | JUST DO DOUBLE CLICK OVER FILE
+
 4.  **Run the program:**
 
     * Linux/Mac
@@ -60,6 +68,10 @@ This section explains how to get the project up and running.
         ```cmd
         python backend/main.py
         ```
+    You can also do double click over main.py file.
+
+    Or use the script in <a href="/WINDOWS-SCRIPTS/start-app.cmd">START APP<a/> | JUST DO DOUBLE CLICK OVER FILE
+
         
 ## Technologies
 ### Frontend
@@ -117,6 +129,9 @@ Esta sección explica cómo configurar y ejecutar el proyecto.
     * En Linux, suele estar instalado por defecto.
     * Para otros sistemas, visita: https://www.python.org/
 
+        - OR USE <a href="/WINDOWS-SCRIPTS/install-python.cmd"> SCRIPT DE INSTALACION PARA WINDOWS <a/> | SOLO HAZ DOBLE CLICK EN EL ARCHIVO
+
+
 2.  **Iniciar un entorno virtual (opcional pero recomendado)**
     * Linux/Mac
         ```bash
@@ -134,6 +149,12 @@ Esta sección explica cómo configurar y ejecutar el proyecto.
     ```bash
     pip install -r requirements.txt
     ```
+    ⚠️ Usuarios Windows: necesitan GTK-3 para PDFs
+    <a href="https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe">DESCARGAR GTK-3</a>
+
+    O usar el script <a href="/WINDOWS-SCRIPTS/install-gtk3.cmd"> SCRIPT DE INSTALACION PARA WINDOWS <a/> | SOLO HAZ DOBLE CLICK EN EL ARCHIVO
+
+
 4.  **Ejecutar el programa:**
 
     * Linux/Mac
@@ -144,6 +165,9 @@ Esta sección explica cómo configurar y ejecutar el proyecto.
         ```cmd
         python backend/main.py
         ```
+    Tambien puedes hacer doble click sobre el archivo main.py
+
+    O usar el script <a href="/WINDOWS-SCRIPTS/start-app.cmd">INICIAR APP<a/> | SOLO HAZ DOBLE CLICK EN EL ARCHIVO
         
 <a id="tecnologias"></a>
 ## Tecnologías

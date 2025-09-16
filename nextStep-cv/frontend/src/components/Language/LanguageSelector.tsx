@@ -1,19 +1,21 @@
 import React from "react";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const LanguageSelector: React.FC = () => {
-    const {i18n} = useTranslation();
+    const { i18n } = useTranslation();
 
     const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedLang = event.target.value;
         i18n.changeLanguage(selectedLang);
     };
 
+    const currentLanguage: string = i18n.language || "es";
+
     return (
         <div className="relative flex flex-col items-center gap-5 text-center w-fit ">
             <select
                 id="language-select"
-                value={i18n.language}
+                value={currentLanguage}
                 onChange={changeLanguage}
                 className="p-1 rounded border border-gray-300 bg-gray-200"
             >

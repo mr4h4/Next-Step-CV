@@ -12,7 +12,7 @@ def open_browser():
 def run_app():
     atexit.register(cleanup_app, app.root_path)
     open_browser()
-    app.run(debug=False, host="localhost", port=8000, threaded=True)
+    app.run(debug=False, host="0.0.0.0", port=8000, threaded=True)
     
 
 if __name__ == '__main__':

@@ -14,6 +14,7 @@ from ..services import createCV
 import config
 
 UPLOADS_FOLDER = config.UPLOADS_FOLDER
+PHOTOS_FOLDER = config.PHOTOS_FOLDER
 TEMP_FILES = {}
 
 # Create cv Blueprint --> Better endpoints managment
@@ -44,7 +45,7 @@ def generateCV():
         if user_photo:
             # PHOTO EXTENSION IS CHECKED ON FRONTEND
             filename = secure_filename(user_photo.filename)
-            photo_path = os.path.join(UPLOADS_FOLDER, f"{uuid.uuid4()}_{filename}")
+            photo_path = os.path.join(PHOTOS_FOLDER, f"{uuid.uuid4()}_{filename}")
             user_photo.save(photo_path)
             #print(f"apiPhotoPath: {photo_path}")
 

@@ -1,17 +1,19 @@
-import React, {useState} from "react";
-import {useCvData} from "../../hooks/useCvData.ts";
+import React, { useState } from "react";
+import { useCvData } from "../../hooks/useCvData.ts";
 
-import CvPreview from "./CvPreview.tsx";
-import CvForm from "./CvForm.tsx";
+import { useTranslation } from "react-i18next";
+
 import Button from "../common/Button.tsx";
-import {useTranslation} from "react-i18next";
-import Splitter from "../common/Splitter.tsx";
 import Link from "../common/Link.tsx";
+import Splitter from "../common/Splitter.tsx";
+import CvForm from "./CvForm.tsx";
+import CvPreview from "./CvPreview.tsx";
+import i18n from "i18next";
 
 const CvContainer: React.FC = () => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
-    const {cvData, setCvData} = useCvData();
+    const { cvData, setCvData } = useCvData();
     const [cvDownloadUrl, setCvDownloadUrl] = useState("");
     const [isShowing, setIsShowing] = useState<boolean>(true);
 
@@ -21,9 +23,12 @@ const CvContainer: React.FC = () => {
     const handleSendCv = async () => {
         setCvDownloadUrl("");
 
+        const rawLang:string= i18n.language || "es";
+        const language:string = rawLang.includes("-") ? rawLang.split("-")[0] : rawLang;
+
         try {
             const formData = new FormData();
-            formData.append("lang", localStorage.getItem("i18nextLng") || "es");
+            formData.append("lang", language);
             formData.append("cv", JSON.stringify(cvData));
 
             if (cvData.image.file) {
@@ -33,7 +38,7 @@ const CvContainer: React.FC = () => {
                     const response = await fetch(cvData.image.url);
                     const imageBlob = await response.blob();
                     // Crea un objeto File a partir del Blob, dándole un nombre
-                    const imageFileToSend = new File([imageBlob], "defaultUserImage.svg", {type: imageBlob.type});
+                    const imageFileToSend = new File([imageBlob], "defaultUserImage.svg", { type: imageBlob.type });
                     formData.append("photo", imageFileToSend);
                 } catch (error) {
                     console.error("Error al obtener la imagen por defecto:", error);
@@ -75,17 +80,17 @@ const CvContainer: React.FC = () => {
 
                     {isShowing && (
                         <div className="w-full">
-                            <CvForm cvData={cvData} setCvData={setCvData}/>
+                            <CvForm cvData={cvData} setCvData={setCvData} />
                         </div>
                     )}
                 </div>
 
                 <div className="flex-1 w-full">
-                    <CvPreview cvData={cvData}/>
+                    <CvPreview cvData={cvData} />
                 </div>
             </main>
 
-            <Splitter/>
+            <Splitter />
 
             {/*DOWNLOAD SECTION*/}
             <div className="flex flex-row flex-wrap justify-center items-center gap-4 w-full max-w-sm p-5 mx-auto">
@@ -94,7 +99,7 @@ const CvContainer: React.FC = () => {
                     content={t("send-cv-button")}
                     onClick={handleSendCv}
                 />
-                
+
                 <Link
                     href={cvDownloadUrl || "#"}
                     download="cv.pdf"

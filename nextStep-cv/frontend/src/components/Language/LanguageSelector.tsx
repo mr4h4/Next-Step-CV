@@ -9,13 +9,13 @@ const LanguageSelector: React.FC = () => {
         i18n.changeLanguage(selectedLang);
     };
 
-    const currentLanguage: string = i18n.language || "es";
+    const currentLanguage: string|undefined = i18n.resolvedLanguage;
 
     return (
         <div className="relative flex flex-col items-center gap-5 text-center w-fit ">
             <select
                 id="language-select"
-                value={currentLanguage}
+                value={currentLanguage === undefined ? "es" : currentLanguage}
                 onChange={changeLanguage}
                 className="p-1 rounded border border-gray-300 bg-gray-200"
             >

@@ -73,9 +73,9 @@
                 <div class="study-card">
                     <h4>{{ study.title }}</h4>
                     <div class="study-details">
-                        <p><strong>{{ study.university }}</strong></p>
+                        <p><strong>{{ study.institution }}</strong></p>
                         <p><time datetime="{{ study.startDate }}">{{ study.startDate }}</time> - <time
-                                datetime="{{ study.endDate or 'Present' }}">{{ study.endDate or "Present" }}</time></p>
+                                datetime="{{ study.endDate or 'Present' }}">{{ study.endDate or "Actualidad" }}</time></p>
                     </div>
                 </div>
                 {% endfor %}

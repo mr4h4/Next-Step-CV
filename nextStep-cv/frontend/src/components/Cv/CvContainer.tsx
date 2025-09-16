@@ -30,6 +30,7 @@ const CvContainer: React.FC = () => {
             const formData = new FormData();
             formData.append("lang", language);
             formData.append("cv", JSON.stringify(cvData));
+            console.log(JSON.stringify(cvData));
 
             if (cvData.image.file) {
                 formData.append("photo", cvData.image.file);
@@ -37,7 +38,6 @@ const CvContainer: React.FC = () => {
                 try {
                     const response = await fetch(cvData.image.url);
                     const imageBlob = await response.blob();
-                    // Crea un objeto File a partir del Blob, dándole un nombre
                     const imageFileToSend = new File([imageBlob], "defaultUserImage.svg", { type: imageBlob.type });
                     formData.append("photo", imageFileToSend);
                 } catch (error) {

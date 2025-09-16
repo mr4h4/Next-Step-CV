@@ -28,7 +28,7 @@ const InputImage: React.FC<Props> = ({label, defaultImagePath, id, value, onChan
     return (
         <div className="relative flex flex-col items-center w-full max-w-xs">
             <img
-                className="w-32 h-32 object-cover rounded-full mb-2"
+                className="w-32 h-32 rounded-full mb-2"
                 src={value || defaultImagePath} // El src ahora depende de la prop 'value'
                 alt={label ? `Imagen para ${label}` : "Imagen seleccionada"}
             />

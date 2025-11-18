@@ -1,0 +1,24 @@
+{
+  "name": "next-step-cv",
+  "version": "1.0.0",
+  "description": "Desktop application designed to create professional resumes quickly, easily, and completely offline.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr4h4/Next-Step-CV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mr4h4/Next-Step-CV/issues"
+  },
+  "homepage": "https://github.com/mr4h4/Next-Step-CV#readme",
+  "devDependencies": {
+    "electron": "^39.2.1"
+  }
+}

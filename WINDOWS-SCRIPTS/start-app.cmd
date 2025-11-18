@@ -1,6 +1,0 @@
-@echo off
-echo Installing Dependecies...
-pip install -r ..\requeriments.txt
-cls
-echo Executing app...
-python ..\nextStep-cv\backend\main.py

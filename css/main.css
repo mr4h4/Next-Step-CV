@@ -1,0 +1,217 @@
+/*FUENTES*/
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Stack+Sans+Text:wght@200..700&display=swap'); /*Cal Sans*/
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Numans&family=Stack+Sans+Text:wght@200..700&display=swap'); /*Numas*/
+
+/*ANIMACIONES*/
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/*////////////////////////////////////////////////////////////////*/
+/*TEMAS*/
+.light-theme {
+    color: #333333; /* opcional, para que el texto resalte sobre el fondo oscuro */
+    background: radial-gradient(
+        circle at bottom right,
+        rgb(86, 127, 184) 0%,   /* azul claro brillante en la esquina (sol) */
+        rgb(231, 241, 255) 100%   /* azul medio profundo en la mayor parte del fondo */
+    );
+}
+
+.dark-theme {
+    color: #fff; /* opcional, para que el texto resalte sobre el fondo oscuro */
+    background: radial-gradient(
+        circle at bottom right,
+        rgb(10, 15, 65) 0%,   /* azul medio, luz sutil en la esquina */
+        rgb(19, 20, 24) 100%     /* casi negro, la mayor parte del fondo */
+    );
+}
+
+/*BOTÓN DIA/NOCHE   https://uiverse.io/JustCode14/red-dingo-61   */ 
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch:hover {
+    transform: scale(1.2);
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(24, 28, 65);
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked + .slider {
+  background-color: rgb(120, 161, 221);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  transition: all 0.4s;
+  height: 5px;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
+}
+
+/*////////////////////////////////////////////////////////////////*/
+h1, h2, h3 {
+    font-family: 'Numans', Arial, sans-serif;
+}
+
+p {
+    font-family: 'Numans', Arial, sans-serif;
+}
+
+/*--BODY--*/
+body {
+    position: relative;
+    overflow: hidden;
+    font-family: Arial, sans-serif; /* solo un ejemplo de fuente */
+    height: 100vh;
+    margin: 0;
+}
+
+/* Pseudo-elemento para el tema oscuro */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at bottom right, rgb(10,15,65) 0%, rgb(10,15,28) 100%);
+  opacity: 1; /* oscuro visible por defecto */
+  transition: opacity 0.8s ease; /* tiempo de transición suave */
+}
+
+/* Pseudo-elemento para el tema claro */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at bottom right, rgb(86,127,184) 0%, rgb(204,225,255) 100%);
+  opacity: 0; /* claro oculto por defecto */
+  transition: opacity 0.8s ease; /* mismo tiempo de transición */
+}
+
+/* Clase para tema claro: mostramos el gradiente claro y ocultamos el oscuro */
+body.light-theme::after {
+  opacity: 1;
+}
+body.light-theme::before {
+  opacity: 0;
+}
+
+/*--HEADER--*/
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: transparent;
+}
+
+nav {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/*--MAIN--*/
+main {
+    text-align: center;
+}
+
+main ul {
+    list-style-position: inside; /* hace que el bullet esté dentro del ancho del elemento */
+    padding-left: 0;             /* elimina el padding por defecto del ul */
+    margin: 1rem auto;           /* centra el ul en el contenedor */
+    display: inline-block;       /* permite que el ul sea centrado como bloque */
+    text-align: left;            /* mantiene los li alineados a la izquierda */
+}
+
+main p{
+    margin-left: 10%;
+    margin-right: 10%;
+}

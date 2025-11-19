@@ -5,39 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextStep CV</title>
     <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./css/classes.css"/>
 </head>
 <body class="light-theme">
     <header>
         <nav>
-            <!--Theme Switcher Button-->
-            <label class="switch">
-                <input checked="true" id="theme-checkbox" type="checkbox" />
-                <span class="slider">
-                    <div class="star star_1"></div>
-                    <div class="star star_2"></div>
-                    <div class="star star_3"></div>
-                    <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-                        <path
-                            transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                            fill="#fff"
-                            d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-                        ></path>
-                    </svg>
-                </span>
-            </label>
-
+            <ul>
+                <li>
+                    <!--Theme Switcher Button-->
+                    <label class="switch">
+                        <input checked="true" id="theme-checkbox" type="checkbox" />
+                        <span class="slider">
+                            <div class="star star_1"></div>
+                            <div class="star star_2"></div>
+                            <div class="star star_3"></div>
+                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                <path
+                                    transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                    fill="#fff"
+                                    d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                ></path>
+                            </svg>
+                        </span>
+                    </label>
+                    <!--Theme Switcher Button-->
+                </li>
+                <li> <button>NEW</button> </li>
+                <li> <button>IMPORT</button> </li>
+                <li> <button>EXPORT</button> </li>
+                <li> <button>CONFIG</button> </li>
+            </ul>
+            <hr>
         </nav>
     </header>
 
     <main>
-
+        <h1>NextStepCV v2 BETA</h1>
+        <p>
+            Desktop application designed to create professional resumes quickly, easily, and completely offline.
+            Originally conceived as a modern web application built with React, Vite, TypeScript, and a Flask/Python 
+            backend for data handling and PDF generation with WeasyPrint, the project now evolves into a much more 
+            accessible and straightforward solution for end users. The new version of NextStep CV removes the need 
+            for servers, deployments, or complex configurations, transforming it into a desktop application powered by 
+            Electron that runs entirely locally. All processing, CV editing, and PDF generation take place directly on the user's device.
+        </p>
+        <p>
+            The goal of this new direction is to offer a fully autonomous and accessible tool, avoiding the technical complexity of deploying a web application with a backend.  
+            NextStep CV becomes a ready-to-use solution, ideal for any type of user regardless of their technical expertise.
+        </p>
     </main>
 
     <footer>
 
     </footer>
 </body>
-<script> //CAMBIAR TEMA
-    document.getElementById('theme-checkbox').addEventListener('change', e => document.body.className = e.target.checked ? 'light-theme' : 'dark-theme');
-</script>
+<script src="./js/button-listeners.js"></script>
 </html>

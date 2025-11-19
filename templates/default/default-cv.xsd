@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="curriculum"> <!-- CURRICULUM-->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="photo" type="xs:string" maxOccurs="1"/> <!--FOTO-->
+                <xs:element name="name" type="xs:string" maxOccurs="1"/> <!--NOMBRE-->
+                <xs:element name="presentation" type="xs:string" maxOccurs="1"/> <!--PRESENTACION-->
+                <!--EXPERIENCIA LABORAL-->
+                <xs:element name="work_experience" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="company" type="xs:string" maxOccurs="1"/> <!--EMPRESA-->
+                            <xs:element name="role" type="xs:string" maxOccurs="1"/> <!--PUESTO-->
+                            <xs:element name="duration" type="xs:int" maxOccurs="1"/> <!--DURACIÓN-->
+                            <xs:element name="description" type="xs:string" maxOccurs="1"/> <!--DESCRIPCION-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!--SKILL Y COMPETENCIAS-->
+                <xs:element name="skills" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="skill_name" type="xs:string" maxOccurs="unbounded"/> <!--NOMBRE DE LA SKILL-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!--HITOS/LOGROS (opcional)-->
+                <xs:element name="achievements" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="achievement" type="xs:string" maxOccurs="unbounded"/> <!--HITO/LOGRO-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!--INFORMACION DE CONTACTO-->
+                <xs:element name="contact_info">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="contact_way" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="contact_data" type="xs:string" maxOccurs="1"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!--EDUCATION-->
+                <xs:element name="education" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="degree" type="xs:string" maxOccurs="1"/> <!--TITULO OBTENIDO-->
+                            <xs:element name="institution" type="xs:string" maxOccurs="1"/> <!--INSTITUCION EDUCATIVA--><!--TITULO OBTENIDO-->
+                            <xs:element name="year" type="xs:int" maxOccurs="1"/> <!--AÑO DE GRADUACION-->  
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!--IDIOMAS-->
+                <xs:element name="languages" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="language" type="xs:string" maxOccurs="1"/> <!--IDIOMA-->
+                            <xs:element name="proficiency" type="xs:string" maxOccurs="1"/> <!--NIVEL DE DOMINIO-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="other_activities" maxOccurs="1"> <!--OTRAS ACTIVIDADES-->
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="activity" type="xs:string" maxOccurs="unbounded"/> <!--ACTIVIDAD-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element> <!--CURRICULUM-->
+</xs:schema>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="default-cv.xsl" type="text/xsl"?>
+<curriculum>
+    <photo>https://vaqueriadeleste.com/wp-content/uploads/2016/06/team-1.jpg</photo>
+    <name>John Doe</name>
+    <presentation>
+        A highly motivated and detail-oriented professional with a strong background in marketing and communication.
+        Seeking to apply my skills to drive brand growth and enhance team performance.
+    </presentation>
+
+    <work_experience>
+        <company>Global Innovations Inc.</company>
+        <role>Marketing Specialist</role>
+        <duration>2021-06 - Currently</duration>
+        <description>
+            Managed social media campaigns, leading to a 25% increase in engagement.
+            Developed content strategies and analyzed marketing data to optimize performance.
+        </description>
+    </work_experience>
+
+    <skills>
+        <skill_name>SEO, SEM, Google Analytics</skill_name>
+        <skill_name>Social Media Management, Content Creation</skill_name>
+        <skill_name>Project Management, Team Leadership</skill_name>
+        <skill_name>Problem-Solving, Communication, Adaptability</skill_name>
+    </skills>
+
+    <achievements>
+        <achievement>2nd place in Boston Hackaton 2024</achievement>
+        <achievement>Development of NextStepCV</achievement>
+    </achievements>
+
+    <contact_info>
+        <contact_way>
+            <contact_data>123 Main Street, Anytown, USA 12345</contact_data>
+        </contact_way>
+        <contact_way>
+            <contact_data>Email: john.doe@email.com</contact_data>
+        </contact_way>
+        <contact_way>
+            <contact_data>Phone: (555) 555-1234</contact_data>
+        </contact_way>
+        <contact_way>
+            <contact_data>GitHub: h3rhex / mr4h4</contact_data>
+        </contact_way>
+    </contact_info>
+
+    <education>
+        <degree>Bachelor of Arts in Communications</degree>
+        <institution>Boston HighSchool</institution>
+        <year>2017-09 - 2021-05</year>
+    </education>
+
+    <education>
+        <degree>IT Engineer</degree>
+        <institution>Harvard University</institution>
+        <year>2021-05 - Present</year>
+    </education>
+
+    <languages>
+        <language>English</language>
+        <proficiency>Native</proficiency>
+    </languages>
+    <languages>
+        <language>Spanish</language>
+        <proficiency>Conversational</proficiency>
+    </languages>
+    <languages>
+        <language>French</language>
+        <proficiency>Basic</proficiency>
+    </languages>
+    <languages>
+        <language>Italian</language>
+        <proficiency>Conversational</proficiency>
+    </languages>
+
+    <other_activities>
+        <activity>Managed social media for a local non-profit.</activity>
+        <activity>Personal blog on digital marketing trends.</activity>
+    </other_activities>
+</curriculum>

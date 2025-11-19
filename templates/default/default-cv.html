@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV Container</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f5f7;
+  }
+
+  #cv-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-gap: 25px;
+    align-items: start;
+  }
+
+  .left-column, .right-column {
+    width: 100%;
+  }
+
+  .right-column {
+    background: #2f3a4b;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Foto, nombre y presentación */
+  .persona {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .persona .photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  .persona .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .persona h1 {
+    font-size: 28px;
+    margin: 0 0 8px 0;
+  }
+
+  .persona p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    color: #2e75d9;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 5px;
+  }
+
+  .right-column h2 {
+    color: #ffffff;
+    border-bottom: 1px solid #526173;
+  }
+
+  p {
+    margin: 6px 0;
+  }
+
+  .work-experience p strong {
+    font-size: 15px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  .right-column ul {
+    padding-left: 0;
+  }
+
+  .right-column ul li {
+    list-style: none;
+    margin-bottom: 6px;
+  }
+
+  .work-experience {
+    margin-bottom: 15px;
+  }
+
+  .languages p {
+    margin: 6px 0;
+  }
+
+  /* Info section and xml sample */
+  .info-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+
+  .xml-sample {
+    background: #f7f7f9;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-height: 860px;
+    overflow: auto;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-family: Consolas, "Courier New", monospace;
+  }
+
+  .xml-sample .cv-preview {
+    border-top: 1px solid #e6e6e6;
+    margin-top: 8px;
+    padding-top: 8px;
+    max-height: 160px;
+    overflow: auto;
+  }
+
+  .xml-sample .preview-inner {
+    transform: scale(0.6);
+    transform-origin: top left;
+    /* ensure scaled content doesn't affect layout width */
+    width: 166.666%; /* 1 / 0.6 */
+    box-sizing: border-box;
+  }
+
+</style>
+</head>
+<body>
+<section class="info-section" aria-labelledby="xml-explainer">
+  <h2 id="xml-explainer">Cómo funciona XML y cómo ayuda a rellenar plantillas de currículums</h2>
+  <p>XML (eXtensible Markup Language) es un formato de datos estructurado que permite almacenar información en etiquetas. Al separar datos (XML) y presentación (XSL/CSS/HTML) podemos mantener plantillas reutilizables y generar múltiples CVs a partir de la misma plantilla.</p>
+  <p>Flujo típico: un archivo XML contiene los datos del candidato; una plantilla XSL transforma esos datos en HTML presentable. Esto permite mantener varias plantillas (estilos) y el mismo conjunto de datos.</p>
+
+  <h3>Ejemplo embebido (XML reducido)</h3>
+  <div class="xml-sample" role="region" aria-label="Ejemplo de XML embebido">
+    <div id="cv-container"></div>
+  </div>
+
+  <p>Ese fragmento puede ser modificado con JavaScript cambiando el contenido del archivo xml que estamos renderizando y veriamos los cambios que vamos realizando, así podemos usarlo como vista previa del curriculum que estamos generando.</p>
+</section>
+
+<script>
+async function loadCV() {
+  const [xmlRes, xslRes] = await Promise.all([
+    fetch('default-cv.xml'),
+    fetch('default-cv.xsl')
+  ]);
+
+  const xmlText = await xmlRes.text();
+  const xslText = await xslRes.text();
+
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, "text/xml");
+  const xsl = parser.parseFromString(xslText, "text/xml");
+
+    // Insert the real fetched XML into the small sample box (escaped and pretty-printed)
+    (function insertXmlSample(rawXml) {
+      const pre = document.querySelector('.xml-sample pre');
+      if (!pre) return;
+
+      function formatXml(xml) {
+        // Basic pretty-printer: adds newlines between tags and indents
+        xml = xml.replace(/(>)(<)(\/*)/g, '$1\r\n$2$3');
+        const lines = xml.split(/\r\n/);
+        let pad = 0;
+        const PADDING = '  ';
+        return lines.map(function(line) {
+          if (!line) return '';
+          let indent = 0;
+          if (line.match(/^<\/?\w.*?>$/) && line.match(/^<\/?\w.*?>$/)[0].startsWith('</')) {
+            pad = Math.max(pad - 1, 0);
+          }
+          const padded = PADDING.repeat(pad) + line;
+          if (line.match(/^<[^!?].*[^\/]>/) && !line.match(/^<.*\/\>/) && !line.match(/^<\?/)) {
+            pad++;
+          }
+          return padded;
+        }).join('\n');
+      }
+
+      try {
+        pre.textContent = formatXml(rawXml.trim());
+      } catch (e) {
+        pre.textContent = rawXml;
+      }
+    })(xmlText);
+
+  if (window.XSLTProcessor) {
+    const xsltProcessor = new XSLTProcessor();
+    xsltProcessor.importStylesheet(xsl);
+    const resultDocument = xsltProcessor.transformToFragment(xml, document);
+    document.getElementById('cv-container').appendChild(resultDocument);
+  } else {
+    document.getElementById('cv-container').innerHTML = "XSLT no soportado en este navegador";
+  }
+}
+
+loadCV();
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* ==== GENERAL ==== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f3f5f7;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---- CONTENEDOR PRINCIPAL A4 ---- */
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    padding: 15mm;
+    background: white;
+    box-sizing: border-box;
+
+    display: grid;                 /* 👉 GRID ACTIVADO */
+    grid-template-columns: 65% 35%;  /* 👉 Tus proporciones originales */
+    grid-gap: 25px;                /* Separación entre columnas */
+    align-items: start;
+}
+
+/* ==== COLUMNAS ==== */
+
+.left-column {
+    width: 100%; /* Ahora el grid controla el ancho */
+}
+
+.right-column {
+    width: 100%;
+    background: #2f3a4b;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;         /* Cuadrado para el círculo */
+    border-radius: 50%;    /* Redondea completamente */
+    overflow: hidden;      /* Asegura que cualquier exceso quede recortado */
+    display: block;        /* Permite que flote correctamente */
+    float: left;           /* Alinea a la izquierda del contenedor */
+    margin: 0 15px 10px 0; /* Separación derecha y abajo del texto */
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* Recorta la imagen para llenar el círculo */
+    border-radius: 50%;    /* Redondea la imagen también */
+    display: block;
+}
+
+.persona {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+/* ==== TITULARES ==== */
+
+h1 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    color: #2e75d9;
+    border-bottom: 1px solid #d2d2d2;
+    padding-bottom: 5px;
+}
+
+.right-column h2 {
+    color: #ffffff;
+    border-bottom: 1px solid #526173;
+}
+
+/* ==== TEXTO ==== */
+
+p {
+    margin: 6px 0;
+}
+
+.work-experience p strong {
+    font-size: 15px;
+}
+
+/* ==== LISTAS ==== */
+
+ul {
+    padding-left: 20px;
+}
+
+.right-column ul {
+    padding-left: 0;
+}
+
+.right-column ul li {
+    list-style: none;
+    margin-bottom: 6px;
+}
+
+/* ==== EXPERIENCIA ==== */
+
+.work-experience {
+    margin-bottom: 15px;
+}
+
+/* ==== IDIOMAS ==== */
+
+.languages p {
+    margin: 6px 0;
+}

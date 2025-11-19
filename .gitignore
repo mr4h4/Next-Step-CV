@@ -1,40 +1,57 @@
-.vscode
+# ============================
+# Node / Electron
+# ============================
 
-# REACT #
-
-# Logs
-logs
-*.log
+# Dependencias
+/node_modules/
+# Archivos de log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Archivos de empaquetado / build
+/dist/
+/build/
+/out/
+*.asar
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# ============================
+# VSCode
+# ============================
+.vscode/
+.history/
+
+# ============================
+# Sistema operativo
+# ============================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Mac
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+.AppleDouble
+.LSOverride
 
-#Python
-__pycache__
-*.pyc
+# Linux
+*~
 
-# OTHER FILES
-PersonalFiles
-nextStep-cv/backend/app/uploads/pdf/*
-nextStep-cv/backend/app/uploads/photos/*
-nextStep-cv/backend/app/uploads/*
+# ============================
+# Configuración personal / local
+# ============================
+.env
+.env.local
+.env.*.local
 
-
-
+# ============================
+# Otros temporales / cachés
+# ============================
+.cache/
+logs/
+*.log
+*.tmp
+*.swp

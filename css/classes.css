@@ -50,7 +50,7 @@ body.light-theme::before {
     background-color: rgb(231, 241, 255);
     color: #222222;
     border: 2px solid rgb(160, 200, 255);
-    transition: background-color 1.5s ease, color 1.5s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    transition: background-color 1.5s ease, color 1.5s ease, box-shadow 0.3s ease, transform 0.4s ease;
 }
 
 .light-theme button:hover {
@@ -74,6 +74,14 @@ body.light-theme::before {
     );
 }
 
+/*Logo GitHub Footer*/
+.light-theme #light-github {
+  display: block;
+}
+
+.light-theme #dark-github {
+  display: none;
+}
 /*DARK THEME////////////////////////////////////////////////////////////////*/
 .dark-theme {
     color: #fff; /* opcional, para que el texto resalte sobre el fondo oscuro */
@@ -99,7 +107,7 @@ body::before {
     background-color: rgb(24, 28, 65);
     color: #f0f0f0;
     border: 2px solid rgb(14, 20, 94);
-    transition: background-color 1.5s ease, color 1.5s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    transition: background-color 1.5s ease, color 1.5s ease, box-shadow 0.3s ease, transform 0.4s ease;
 }
 
 .dark-theme button:hover {
@@ -123,6 +131,14 @@ body::before {
     );
 }
 
+/*Logo GitHub Footer*/
+.dark-theme #light-github {
+  display: none;
+}
+
+.dark-theme #dark-github {
+  display: block;
+}
 /*////////////////////////////////////////////////////////////////*/
 /*BOTÓN DIA/NOCHE https://uiverse.io/JustCode14/red-dingo-61   */ 
 /* The switch - the box around the slider */

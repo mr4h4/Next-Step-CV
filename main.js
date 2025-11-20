@@ -2,6 +2,7 @@
 // 'app' controla el ciclo de vida de la aplicación
 // 'BrowserWindow' nos permite crear ventanas de escritorio
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 // Función que crea la ventana principal de la aplicación
 function createWindow() {
@@ -10,8 +11,8 @@ function createWindow() {
     //dimensiones baremo en proporción
     width: 800,
     height: 1131,
-    minWidth:400, 
-    minHeight: 566,
+    resizable: false,
+    icon: path.join(__dirname, 'build', 'icon.ico'), // ícono de la aplicación
     webPreferences: {
       nodeIntegration: true // permite usar Node.js dentro del HTML/JS de la ventana
     }

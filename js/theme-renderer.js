@@ -32,46 +32,58 @@ const darkGitHub = (() => {
 document.addEventListener('DOMContentLoaded', () => {
     const themeCheckbox = document.getElementById('theme-checkbox');
     const wrap = document.getElementById('github-logo-wrap'); // contenedor donde poner el <a>
+    const STORAGE_KEY = 'ns-cv-theme'; // 'light' | 'dark'
 
     function applyTheme(isLight) {
-        document.body.className = isLight ? 'light-theme' : 'dark-theme';
+        // remove any existing theme classes and set the correct one
+        document.body.classList.remove('light-theme', 'dark-theme');
+        document.body.classList.add(isLight ? 'light-theme' : 'dark-theme');
+        document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
+        // update meta theme-color if present
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isLight ? '#e7f1ff' : '#0a0f2b');
     }
-    
+
     function updateGithubLogo(isLight) {
-        if (!wrap) return; // si no existe el contenedor, no hacemos nada
-
-        // limpiar contenedor
+        if (!wrap) return;
         wrap.innerHTML = '';
-
-        // clonamos la imagen porque podríamos reutilizar lightGitHub/darkGitHub en otras partes
         const imgToUse = isLight ? darkGitHub.cloneNode(true) : lightGitHub.cloneNode(true);
-
-        // no visible al inicio
         imgToUse.classList.remove('visible');
-
-        // clonamos el anchor (sin children) y le añadimos la imagen
         const anchor = githubLink.cloneNode(false);
         anchor.appendChild(imgToUse);
-
-        // forzar reflow para reiniciar la animación
-        requestAnimationFrame(() => {
-                imgToUse.classList.add('visible');
-            });
-
+        requestAnimationFrame(() => imgToUse.classList.add('visible'));
         wrap.appendChild(anchor);
     }
 
-    // Determinar estado inicial (si existe checkbox lo usamos, si no miramos la clase del body)
-    const initialIsLight = themeCheckbox ? themeCheckbox.checked : document.body.classList.contains('light-theme');
-    applyTheme(initialIsLight);
-    updateGithubLogo(initialIsLight);
+    // Determine initial theme: priority -> localStorage -> checkbox -> body class -> default dark
+    const stored = localStorage.getItem(STORAGE_KEY);
+    const checkboxState = themeCheckbox ? themeCheckbox.checked : null;
+    const bodyHasLight = document.body.classList.contains('light-theme');
+    const initialIsLight = (stored === 'light') ? true
+        : (stored === 'dark') ? false
+        : (checkboxState !== null) ? checkboxState
+        : bodyHasLight;
 
-    // Añadir un único listener si hay checkbox
+    // ensure a class is set on load (prevents both logos showing before JS runs)
+    applyTheme(Boolean(initialIsLight));
+    updateGithubLogo(Boolean(initialIsLight));
+
+    // wire checkbox, persist preference
     if (themeCheckbox) {
+        themeCheckbox.checked = Boolean(initialIsLight);
         themeCheckbox.addEventListener('change', (e) => {
             const isLight = e.target.checked;
             applyTheme(isLight);
             updateGithubLogo(isLight);
+            localStorage.setItem(STORAGE_KEY, isLight ? 'light' : 'dark');
         });
     }
+    // if no checkbox, still allow other code to change theme by writing to localStorage
+    window.addEventListener('storage', (e) => {
+        if (e.key === STORAGE_KEY) {
+            const isLight = e.newValue === 'light';
+            applyTheme(isLight);
+            updateGithubLogo(isLight);
+        }
+    });
 });

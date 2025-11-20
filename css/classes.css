@@ -91,22 +91,30 @@ footer a img#dark-github {
   pointer-events: none;
 }
 
+/* Home logo: keep layout flow so the container height grows with the image
+   -> prevents overlap with following headings. Images are centered and
+   theme-specific variants are hidden via display:none to avoid occupying
+   space when inactive. */
 .home-logo-wrap {
-  position: relative;
-  width: 20%;
-  margin: 20px auto 24px auto; /* increase bottom margin to separate from h1 */
-  min-height: 160px; /* ensure container reserves vertical space even if image is absolute */
+  width: auto;
+  max-width: 320px; /* logo won't grow beyond this */
+  margin: 18px auto 18px auto; /* vertical spacing between logo and h1 */
+  padding-top: 6px;
+  text-align: center;
 }
 .home-logo-wrap img {
-  position: absolute;
-  left: 50%;
-  top: 8px; /* drop image a little so it doesn't touch nearby headings */
-  transform: translateX(-50%) scale(0.98);
-  width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: min(85%, 280px); /* responsive: up to 280px or 85% of container */
   height: auto;
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transition: opacity 0.32s ease, transform 0.32s ease;
   pointer-events: none;
+}
+
+/* Utility to fully remove an element from layout and accessibility tree */
+.hidden {
+  display: none !important;
 }
 
 #github-logo-wrap img {
@@ -126,13 +134,28 @@ footer a img#dark-github {
 body.light-theme footer a img#light-github,
 body.light-theme .home-logo-wrap img#home-logo-light {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
+  transform: scale(1);
 }
 
 body.dark-theme footer a img#dark-github,
 body.dark-theme .home-logo-wrap img#home-logo-dark {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
+  transform: scale(1);
+}
+
+/* Prefer removing the inactive home logo from layout so it cannot overlap
+   the following content. This keeps the visible logo in normal document flow. */
+body.light-theme .home-logo-wrap img#home-logo-dark {
+  display: none;
+}
+body.light-theme .home-logo-wrap img#home-logo-light {
+  display: block;
+}
+body.dark-theme .home-logo-wrap img#home-logo-light {
+  display: none;
+}
+body.dark-theme .home-logo-wrap img#home-logo-dark {
+  display: block;
 }
 
 /*DARK THEME////////////////////////////////////////////////////////////////*/

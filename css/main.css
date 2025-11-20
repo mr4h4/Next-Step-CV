@@ -18,8 +18,8 @@ hr {
 button {
     font-family: 'Cal Sans', Arial, sans-serif;
     transform: scale(0.8);
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     font-size: 14px;
     padding: 8px 12px;
     border-radius: 50px;

@@ -30,27 +30,29 @@
                     </label>
                     <!--Theme Switcher Button-->
                 </li>
-                <li> <button>NEW</button> </li>
+                <li> <button id="home-button">HOME</button> </li>
+                <li> <button id="new-button">NEW</button> </li>
                 <li> <button>IMPORT</button> </li>
                 <li> <button>EXPORT</button> </li>
                 <li> <button>CONFIG</button> </li>
-                <li> <a href="./templates/default/default-cv.html">Ejemplo</a> </li>
             </ul>
             <hr>
         </nav>
     </header>
 
-    <main>
-        
+    <main id="content">
     </main>
 
     <footer>
+        <div style="display: flex; flex-direction: column;"> //Parchear centrado imagen
         <a href="https://github.com/mr4h4/Next-Step-CV" target="_blank">
             <img class="light-theme" id="light-github" src="./src/img/github-negro.png">
             <img class="light-theme" id="dark-github" src="./src/img/github-blanco.png">
         </a>
+        </div>
         <p>NextStepCV v2</p>
     </footer>
 </body>
-<script src="./js/button-listeners.js"></script>
+    <script src="./js/content-loader.js"></script>
+    <script src="./js/theme-renderer.js"></script>
 </html>

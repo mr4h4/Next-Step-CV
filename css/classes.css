@@ -74,13 +74,52 @@ body.light-theme::before {
     );
 }
 
-/*Logo GitHub Footer*/
-.light-theme #light-github {
-  display: block;
+/* Logo transitions: use opacity + transform so we can animate smoothly (0.4s) */
+/* Footer anchor is the stacking context for GitHub icons */
+footer a { position: relative; display: inline-block; width: 28px; height: 28px; }
+
+footer a img#light-github,
+footer a img#dark-github {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
 }
 
-.light-theme #dark-github {
-  display: none;
+.home-logo-wrap { position: relative; width: 20%; margin: 20px auto 10px auto; height: 140px; }
+.home-logo-wrap img { position: absolute; left: 50%; top: 0; transform: translateX(-50%) scale(0.98); width: 100%; height: auto; opacity: 0; transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none; }
+
+/* Visible variants */
+body.light-theme footer a img#light-github,
+body.light-theme .home-logo-wrap img#home-logo-light {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+body.dark-theme footer a img#dark-github,
+body.dark-theme .home-logo-wrap img#home-logo-dark {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Force footer images to be absolutely positioned and not affect flex layout
+   Use !important to override other styles that might be applied elsewhere. */
+footer a { padding: 0 !important; margin: 0 !important; }
+footer a img {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  object-fit: contain !important;
 }
 /*DARK THEME////////////////////////////////////////////////////////////////*/
 .dark-theme {
@@ -132,13 +171,7 @@ body::before {
 }
 
 /*Logo GitHub Footer*/
-.dark-theme #light-github {
-  display: none;
-}
-
-.dark-theme #dark-github {
-  display: block;
-}
+/* (Handled above by body class rules) */
 /*////////////////////////////////////////////////////////////////*/
 /*BOTÓN DIA/NOCHE https://uiverse.io/JustCode14/red-dingo-61   */ 
 /* The switch - the box around the slider */
@@ -151,8 +184,8 @@ body::before {
   height: 2.2em;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   transition: transform 0.3s ease;
 }
 

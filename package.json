@@ -25,9 +25,9 @@
   },
   "build": {
     "appId": "com.nextstepcv.app",
-    "icon": "build/icon.ico",
+    "icon": "src/img/icon.ico",
     "win": {
-      "icon": "build/icon.ico"
+      "icon": "src/img/icon.ico"
     }
   }
 }

@@ -1,4 +1,4 @@
-# NextStep CV
+# NextStep CV (Not Finished)
 
 Desktop application designed to create professional resumes quickly, easily, and completely offline.
 
